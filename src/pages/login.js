@@ -41,7 +41,6 @@ const Login = () => {
     return AuthService.login(username, password)
       .then(() => {
         setUserDisplay();
-        return navigate("/");
       })
       .catch((error) => {
         const resMessage =
@@ -54,8 +53,14 @@ const Login = () => {
       });
   };
 
+  let location = window.location.href;
+
+  if (location == "http://localhost:3000/login") {
+    location = "/";
+  }
+
   return isUser() ? (
-    <Navigate to="/" replace />
+    <Navigate to={location} replace />
   ) : (
     <div className={styles.loginContainer}>
       <h1 className={styles.title}>Login</h1>

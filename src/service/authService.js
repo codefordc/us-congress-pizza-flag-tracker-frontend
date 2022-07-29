@@ -39,8 +39,8 @@ class AuthService {
           console.log("Auth error w/ server response: ", basicError);
           throw basicError;
         } else {                                      // error --> no server response, connection down?
-          console.log("Auth error w/o server response: ", e);
-          throw e;
+          console.log("Auth error w/o server response: ", e.message);
+          throw e.message;
         }
       });
   }
@@ -83,8 +83,8 @@ class AuthService {
           console.log("Auth error w/ server response: ", basicError);
           throw basicError;
         } else {                                      // error --> no server response, connection down?
-          console.log("Auth error w/o server response: ", e);
-          throw e;
+          console.log("Auth error w/o server response: ", e.message);
+          throw e.message;
         }
       }
     });
